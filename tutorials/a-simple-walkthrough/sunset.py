@@ -5,8 +5,8 @@ from cherrypy.process.plugins import Daemonizer, PIDFile
 import requests
 
 cur_dir = os.path.abspath(os.path.dirname(__file__))
-key_path = os.path.join(cur_dir, "key.pem")
-cert_path = os.path.join(cur_dir, "cert.pem")
+key_path = os.path.join(cur_dir, "ssl/key.pem")
+cert_path = os.path.join(cur_dir, "ssl/cert.pem")
 
 
 class Root:
@@ -20,7 +20,7 @@ class Root:
             raise cherrypy.HTTPError(500, r.text)
 
         cherrypy.response.headers["Content-Type"] = "text/plain"
-        return "The sunset will occur at {} in {}".format(
+        return "The sunset will occur at {} in {}\n".format(
             r.json()["sunset"], name
         )
 
@@ -30,6 +30,7 @@ def run():
     cherrypy.config.update({
         "environment": "production",
         "log.screen": True,
+        "server.socket_host": "0.0.0.0",
         "server.socket_port": 8443,
         "server.ssl_module": "builtin",
         "server.ssl_private_key": key_path,

@@ -1,4 +1,4 @@
-astral
+astral<2
 cherrypy
 pytz
 requests

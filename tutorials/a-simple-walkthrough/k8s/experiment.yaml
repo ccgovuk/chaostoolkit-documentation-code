@@ -1,0 +1,89 @@
+---
+title: What is the impact of an expired certificate on our application chain?
+version: 1.0.0
+description: If a certificate expires, we should gracefully deal with the issue.
+tags:
+- kubernetes
+- tls
+steady-state-hypothesis:
+  title: Application responds
+  probes:
+  - name: astral services should be healthy
+    type: probe
+    tolerance: true
+    provider:
+      type: python
+      module: chaosk8s.probes
+      func: microservice_available_and_healthy
+      arguments:
+        ns: chaostest
+        name: astre-dep
+  - name: we can request sunset in London
+    type: probe
+    tolerance: 200
+    provider:
+      type: http
+      timeout: 3
+      verify_tls: false
+      url: https://localhost:32644/city/London
+  
+
+method: 
+  - name: swap to expired cert
+    type: action
+    provider:
+      type: process
+      path: kubectl
+      arguments: apply -f ssl-expired.yaml
+  - name: terminate-astre
+    type: action
+    provider:
+      type: python
+      module: chaosk8s.pod.actions
+      func: terminate_pods
+      arguments:
+        ns: chaostest
+        name_pattern: astre-dep-[0-9]*
+        rand: true
+    pauses:
+      after: 20
+
+rollbacks: 
+  - name: swap to good cert
+    type: action
+    provider:
+      type: process
+      path: kubectl
+      arguments: apply -f ssl-good.yaml
+  - name: scale astre down
+    type: action
+    provider:
+      type: python
+      module: chaosk8s.actions
+      func: scale_microservice
+      arguments:
+        ns: chaostest
+        name: astre-dep
+        replicas: 0
+    pauses:
+      after: 10
+  - name: scale astre up 
+    type: action
+    provider:
+      type: python
+      module: chaosk8s.actions
+      func: scale_microservice
+      arguments:
+        ns: chaostest
+        name: astre-dep
+        replicas: 1
+    pauses:
+      after: 10
+  - name: we can request sunset in London
+    type: probe
+    tolerance: 200
+    provider:
+      type: http
+      timeout: 3
+      verify_tls: false
+      url: https://localhost:32644/city/London

@@ -1,0 +1,110 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ssl-stuff
+  namespace: chaostest
+type: Opaque
+data:
+  cert.pem: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lKQUxCVnRzdEEyRXpRTUEwR0NTcUdTSWIzRFFFQkN3VUFNR1V4Q3pBSkJnTlYKQkFZVEFrWlNNUkV3RHdZRFZRUUlEQWhDY21sMGRHRnVlVEVQTUEwR0ExVUVCd3dHVW1WdWJtVnpNUkF3RGdZRApWUVFLREFkRGIyMXdZVzU1TVF3d0NnWURWUVFMREFOUGNtY3hFakFRQmdOVkJBTU1DV3h2WTJGc2FHOXpkREFlCkZ3MHhPREExTVRReE5ESTJORGxhRncweU9EQTFNVEV4TkRJMk5EbGFNR1V4Q3pBSkJnTlZCQVlUQWtaU01SRXcKRHdZRFZRUUlEQWhDY21sMGRHRnVlVEVQTUEwR0ExVUVCd3dHVW1WdWJtVnpNUkF3RGdZRFZRUUtEQWREYjIxdwpZVzU1TVF3d0NnWURWUVFMREFOUGNtY3hFakFRQmdOVkJBTU1DV3h2WTJGc2FHOXpkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTHI2YnAwdG12Q0dBbVlZQU5IdTRJYnFrRk1MWGRPY2RFMW4KTkZWTHdBaGs3SE5uRlhwQWNlM1hLeHJzMU1MSFJhSWEwbnFKRW1Zc3lwTW5uQ25EWlVIcjhsNzdMMURCeGNkYwozeFZLZDVjNStUNTFFRlBnaVZuNVphOGg4dkhwTUQ5OWhwdFN4dThIK2NkbHVXM1QwenRveWRFNUJXWWl2UitwClZQK2dqaHVUb3JublFqZkVSa3lMRDB3QytmdzRiVk5uaXB1dzZ2ck5oT1U1TVVPa2Z0S3plWVhVK3lEM2RaRXAKSzVzUnNFZjhJci9yUzdhL0R0NGV0cUhmRnRVUkFHc29NTytzbVZ6ZDJZa0QwNDNPUk5XNTdXaFNsallhUWZNUApad2Q4cXc1RTNqb2ovOTBMWUFkYWVmRDZ2UjJSR0FqMm1qbEE1V1pJbkVOWW9SRS9HVHNDQXdFQUFhTlFNRTR3CkhRWURWUjBPQkJZRUZBYkE3QmVNUXQ1aEUrTVN5dHJCTW5rK01YVEFNQjhHQTFVZEl3UVlNQmFBRkFiQTdCZU0KUXQ1aEUrTVN5dHJCTW5rK01YVEFNQXdHQTFVZEV3UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQgpBSmJGNGJwbmdWaGFmaFJQZTVERWNESndnM3dFaUZjUkNDWm95UVROL0dQSWFnWmJFT3Ixd2hkWHV0eEhsQVBSCkVtMUJ4UGtLYlRKN2YyZWRxOUJIZ0ZUdnc0VllrWFVHMXNzZDhIOC9HT1g1SzFjcUFjdERNR2lScUdpM29ENlYKaTlBNDE2ck8wck52cGlqaXhDUHF2RTN5ZThQRWdGTDdXTHZTSTlwOU1ldEFIaXFGYlROOTc0eTkxNmhoTlRFVgpoTWhQdFNvUHJIODhWcHZFc05BRFFybHJWUWFFYXhDdU52SlhzWFBoN1N3N3I4K3J2akJpQ2VZNko5UzNTUWZCClZNS243SGdjMUN0NTYvWUxEWHZqRlpCeDZkTDd3YjBUU2NORXFWYW5YNm5WZVVQUENlN1RMa1pRWS9uSW40YzcKZC9LYml1TDdCSWI1Qjdiak1rbW1OcTA9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  key.pem: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2d0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktrd2dnU2xBZ0VBQW9JQkFRQzYrbTZkTFpyd2hnSm0KR0FEUjd1Q0c2cEJUQzEzVG5IUk5aelJWUzhBSVpPeHpaeFY2UUhIdDF5c2E3TlRDeDBXaUd0SjZpUkptTE1xVApKNXdwdzJWQjYvSmUreTlRd2NYSFhOOFZTbmVYT2ZrK2RSQlQ0SWxaK1dXdklmTHg2VEEvZllhYlVzYnZCL25IClpibHQwOU03YU1uUk9RVm1JcjBmcVZUL29JNGJrNks1NTBJM3hFWk1pdzlNQXZuOE9HMVRaNHFic09yNnpZVGwKT1RGRHBIN1NzM21GMVBzZzkzV1JLU3ViRWJCSC9DSy82MHUydnc3ZUhyYWgzeGJWRVFCcktERHZySmxjM2RtSgpBOU9OemtUVnVlMW9VcFkyR2tIekQyY0hmS3NPUk40NkkvL2RDMkFIV25udytyMGRrUmdJOXBvNVFPVm1TSnhECldLRVJQeGs3QWdNQkFBRUNnZ0VCQUlJUTlXTm5OeEc3MXUxWUl6SG1IdEFiV1h3N092Q2FOQmtvQXJLVytDV2UKdHhEc0UzZXdYdEJaVGtYem0ybEhIM3hOZGo4QkhRaHdmaFp4aG1OUzVodytXcUtSenU4NWJEQnJ2VTlkTnVXKwowVkFPTk9aMEduZTVVbS9LaU9xWkVSUUphTnFoY1hzVHJFQjExZEM5ZW9Jb09jUE9DNkJwNSsrZlpsNVFQS3FYCkQwUC9PNTRvS0x0aWJncGFwUDdGb2J3M3p2UVhjYkxpY3R0aVZOaXBuWmRzUklSL0o5YTJvTVRCUStWY1hiV0cKN0FJSm5KVnFyTlZxRSt5Q2NxemYzZTZTaUUvOVpNNlFZakVLWkd6RUNKclBnK25yc0dqTHNNSWQvVU56S3daUwpBMnpOZ203dnJ4UThMSnpLWi9sK1FJMEtKSmtFMUhPTXV1U2phMlJxVEprQ2dZRUEzT0tsdW5LSUl6U0pKazVuCnpaaDhBdXU1RjVyNWhXb3hBOXFOZ1M3N1UxQnc0cW1IUGcwTktQTHZDdy90TFFDTC9YRlJzaTRpWjBSWjBYeVgKQ3R3ckpYcWlyUCt3K0hYbzd1c1FZQUg5d0dQTForUEUzMm9IZHh2LzdWZ0gvOVVmdEd6OEpMM2thTEhOalVBbwp5RXdYeGVuZjlrZG93NGdYK2FFQzZwcWx0cVVDZ1lFQTJMUGU0REFzOXdWcCs3M2NyTW5yM09NRk9uN2x4L0hWCjJ3RzhTbzN6WFZzK3cvdEdQWHJqTzRBT0xXdjFlbGgzUy9hdWxpb01IUGVvcitXdlgrQW5SbzVXNXhYZklhNGQKM1lJZm1rQ01nMDVWeU5VblN3ajlGSVBiejhXL0ZORmd6N2I0T3dId3R6MldsQXB1TUdNS1ZvV3pQcE1rMk53dwpuRDlTai9XZ2FsOENnWUVBMC92d2NXOVpsKy9qY0Evdkx6RVlVdlZIUFpCTngreVIvZERSM1JqcHVwdUl1djlYCi9BVXFqQkladDlRaEd2OWJXbkJXcDFuL1Nud2VkeDNMRjNFVk4zTHFqSDBYcWx2K29NeVhlb3h1cXlVYklTbEcKMStNNkp1V0lTSkFqblRNOHFqdXVBTlQ5VUR6VHVLdktkL0FQSUxIRGJ1ZzVjdTQ1bENraVUyVDNoTUVDZ1lFQQp3Y2puNy9kazNtbWJBeUlmNnV5TzNYS3VSRWNpV0pEc3V2SnNYUWRmc0FaZXRJZEpvc1QzMjBlQ1poLzYzek9wClN1Y0g3UVVnMis2a2pOZUs0dVBpZTNmaVFyZ09WMklMRndDOEhnYkhJTXkyYmVnZlFUeUNoUXY5VDJuNG5EYzQKcWNkblorMHVRODd4anVWYzhDeEJIR3BuaGZlenBiSVNUa2RhSDU1NW0yVUNnWUIvKzkyWWJ1cStORTU4dm5pTgpoa1ZTWDVSalZGMytyNWFrV09reXdCVlp2Y2ZhNUFUYWJ6bTdlWHNBelh3Y00yelpDMWdxOXpiWkpSWDlzTGM2CnRIcHVMUWlTUHlNRFhRZmd5NVMrRkRVU3UvQmt0YlJ4N25aNFBXVUJyQzRxY21zNzdRcStOQ0dXUTlIVUVHUG8KYmNsTmhIZStJV0UvS0RVQ2YrRGdKamk4Y1E9PQotLS0tLUVORCBQUklWQVRFIEtFWS0tLS0tCg==
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astre-dep
+  namespace: chaostest
+  labels:
+    app: astre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: astre
+  template:
+    metadata:
+      labels:
+        app: astre
+    spec:
+      containers:
+      - name: astre
+        image: astre
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: "/astral/ssl"
+            name: ssl-stuff
+        ports:
+        - containerPort: 8444
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+      volumes:
+        - name: ssl-stuff
+          secret:
+              secretName: ssl-stuff
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunset-dep
+  namespace: chaostest
+  labels:
+    app: sunset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sunset
+  template:
+    metadata:
+      labels:
+        app: sunset
+    spec:
+      containers:
+      - name: sunset
+        image: sunset
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: "/astral/ssl"
+            name: ssl-stuff
+        ports:
+        - containerPort: 8443
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+      volumes:
+        - name: ssl-stuff
+          secret:
+              secretName: ssl-stuff
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: astre-service
+  namespace: chaostest
+spec:
+  type: ClusterIP
+  selector:
+    app: astre
+  ports:
+  - protocol: TCP
+    port: 8444
+    targetPort: 8444
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sunset-service
+  namespace: chaostest
+spec:
+  type: NodePort
+  selector:
+    app: sunset
+  ports:
+  - protocol: TCP
+    port: 8443
+    targetPort: 8443
+    nodePort: 32644

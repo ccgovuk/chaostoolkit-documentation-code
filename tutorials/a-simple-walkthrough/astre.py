@@ -31,7 +31,7 @@ class Root:
         result = {}
         for k, v in sun.items():
             if isinstance(v, datetime):
-                result[k] = v.astimezone(tz).isoformat()
+                result[k] = v.astimezone(tz).ctime()
             else:
                 result[k] = v
         return result
@@ -44,9 +44,11 @@ def run():
         "environment": "production",
         "log.screen": True,
         "server.socket_port": 8444,
+        "server.socket_host": "0.0.0.0",
+        "daemonize": True,
         "server.ssl_module": "builtin",
-        "server.ssl_private_key": os.path.join(cur_dir, "key.pem"),
-        "server.ssl_certificate": os.path.join(cur_dir, "cert.pem")
+        "server.ssl_private_key": os.path.join(cur_dir, "ssl/key.pem"),
+        "server.ssl_certificate": os.path.join(cur_dir, "ssl/cert.pem")
     })
     PIDFile(cherrypy.engine, 'astre.pid').subscribe()
     cherrypy.quickstart(Root())

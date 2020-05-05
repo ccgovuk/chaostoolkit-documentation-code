@@ -27,7 +27,6 @@ steady-state-hypothesis:
       verify_tls: false
       url: https://localhost:32644/city/London
   
-
 method: 
   - name: swap to expired cert
     type: action
@@ -47,6 +46,14 @@ method:
         rand: true
     pauses:
       after: 20
+  - name: we can still request sunset in Paris
+    type: probe
+    tolerance: 200
+    provider:
+      type: http
+      timeout: 3
+      verify_tls: false
+      url: https://localhost:32644/city/Paris
 
 rollbacks: 
   - name: swap to good cert
